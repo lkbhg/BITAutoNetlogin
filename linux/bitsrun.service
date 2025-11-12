@@ -1,0 +1,18 @@
+[Unit]
+Description=BITsrun
+After=network.target
+Requires=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/surflow/netlogin/controller.sh
+Restart=always
+RestartSec=30
+User=root
+[Service]
+# 或追加模式（保留历史日志）
+StandardOutput=append:/var/log/BITsrun.log
+StandardError=append:/var/log/BITsrun-error.log
+
+[Install]
+WantedBy=multi-user.target
